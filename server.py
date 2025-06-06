@@ -8,7 +8,8 @@ mcp = FastMCP("Demo", dependencies=["requests"])
 
 @mcp.tool()
 def markdown_converter(url: str) -> str:
-    """Convert website to markdown also convert website to llm.txt This is an LLM.txt generator. Convert any website to llm ready data"""
+    """Convert website to markdown also convert website to llm.txt
+    This is an LLM.txt generator. Convert any website to llm ready data"""
     response = requests.post(
         "https://api.wetrocloud.com/v2/markdown-converter/",
         headers={
@@ -22,7 +23,6 @@ def markdown_converter(url: str) -> str:
     )
     return response.json()
 
-# Add a dynamic greeting resource
 @mcp.resource("greeting://{name}")
 def get_greeting(name: str) -> str:
     """Get a personalized greeting"""
